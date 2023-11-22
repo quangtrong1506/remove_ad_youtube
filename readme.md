@@ -1,5 +1,10 @@
 # Loại bỏ 1 số quảng cáo trên YouTube
 
+## Cập nhật mới v1.0.2
+
+-   Xoá quảng cáo banner
+-   Back qua quảng náo không thể bỏ qua (thử nghiệm, nếu mạng lag có thể lỗi hoặc lag)
+
 ### Hướng dẫn cài đặt
 
 1. Tải file nén [link](https://codeload.github.com/quangtrong1506/remove_ad_youtube/zip/refs/heads/main?token=ATI3JBZWO4OIB4YICJDALCDFLQ7XK) và giải nén

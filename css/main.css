@@ -1,4 +1,6 @@
 /* Quảng cáo đầu slot ở trang chủ */
+
+.ytd-banner-promo-renderer-layout-container.ytd-banner-promo-renderer,
 .ytd-display-ad-renderer,
 .ytd-ad-slot-renderer {
     opacity: 0 !important;
