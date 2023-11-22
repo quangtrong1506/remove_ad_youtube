@@ -3,7 +3,7 @@
 ## Cập nhật mới v1.0.2
 
 -   Xoá quảng cáo banner
--   Back qua quảng náo không thể bỏ qua (thử nghiệm, nếu mạng lag có thể lỗi hoặc lag)
+-   Back qua quảng cáo không thể bỏ qua (thử nghiệm, nếu mạng lag có thể lỗi hoặc lag)
 
 ### Hướng dẫn cài đặt
 
