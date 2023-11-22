@@ -7,7 +7,7 @@
 
 ### Hướng dẫn cài đặt
 
-1. Tải file nén [link](https://codeload.github.com/quangtrong1506/remove_ad_youtube/zip/refs/heads/main?token=ATI3JBZWO4OIB4YICJDALCDFLQ7XK) và giải nén
+1. Tải file nén [link](https://codeload.github.com/quangtrong1506/remove_ad_youtube/zip/refs/heads/main) và giải nén
 2. Vào quản lý tiện ích và bật chế độ cho nhà phát triển
    ![image](https://i.ibb.co/Ld0DFNK/nh-ch-p-m-n-h-nh-2023-11-21-121356.png)
 3. Lựa chọn folder extensions

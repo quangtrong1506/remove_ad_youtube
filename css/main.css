@@ -1,17 +1,11 @@
-/* Quảng cáo đầu slot ở trang chủ */
-
 .ytd-banner-promo-renderer-layout-container.ytd-banner-promo-renderer,
 .ytd-display-ad-renderer,
 .ytd-ad-slot-renderer {
     opacity: 0 !important;
     visibility: hidden !important;
 }
-/* Quảng cáo nhỏ ở trên video đề cử */
 #player-ads,
-/* chư phân được */
 ytd-ad-slot-renderer,
-/* Quảng cáo ở banner trang chủ */
-
 .ytd-rich-section-renderer {
     display: none !important;
 }
