@@ -47,7 +47,5 @@ navigation.addEventListener('navigate', () => {
             isJustStartedPlayingVideo = false;
         }, 5000);
         time = 0;
-    } else {
-        isJustStartedPlayingVideo = false;
     }
 });
