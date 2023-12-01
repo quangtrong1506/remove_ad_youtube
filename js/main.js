@@ -1,6 +1,6 @@
 let time = 0;
 let currentId = null;
-let isJustStartedPlayingVideo = false;
+let isJustStartedPlayingVideo = true;
 const typeOfAdvertisement = {
     beforePlayingTheVideo: Symbol('before_playing_the_video'),
     middleOfTheVideo: Symbol('middle_of_the_video'),
@@ -12,6 +12,7 @@ setInterval(() => {
     else if (document.querySelector('.ytp-ad-text.ytp-ad-preview-text-modern')) {
         if (isJustStartedPlayingVideo)
             handleAdvertisement(typeOfAdvertisement.beforePlayingTheVideo);
+        else handleAdvertisement(typeOfAdvertisement.middleOfTheVideo);
     } else {
         time = Math.floor(document.querySelector('video')?.currentTime) || 0;
     }
