@@ -1,6 +1,6 @@
 # Loại bỏ 1 số quảng cáo trên YouTube
 
-## Cập nhật mới v1.0.2
+## Cập nhật mới v1.0.3
 
 -   Xoá quảng cáo banner
 -   Back qua quảng cáo không thể bỏ qua (thử nghiệm, nếu mạng lag có thể lỗi hoặc lag)

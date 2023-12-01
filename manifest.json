@@ -1,7 +1,7 @@
 {
     "name": "[Youtube] Skip ad",
     "description": "[Youtube] Skip ad by TrongSaDoa",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "manifest_version": 3,
     "action": {
         "default_icon": {

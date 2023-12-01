@@ -6,6 +6,7 @@
 }
 #player-ads,
 ytd-ad-slot-renderer,
-.ytd-rich-section-renderer {
+.ytd-rich-section-renderer,
+.ytd-banner-promo-renderer-background.ytd-banner-promo-renderer {
     display: none !important;
 }
