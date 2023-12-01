@@ -21,11 +21,11 @@ const handleAdvertisement = (type) => {
     console.log('Ads: ', type);
     switch (type) {
         case typeOfAdvertisement.beforePlayingTheVideo:
-            if (currentId) window.location.href = `https://youtu.be/${currentId}`;
+            if (currentId) window.location = `https://youtu.be/${currentId}`;
             break;
 
         case typeOfAdvertisement.middleOfTheVideo:
-            if (currentId) window.location.href = `https://youtu.be/${currentId}&t=${time}s`;
+            if (currentId) window.location = `https://youtu.be/${currentId}&t=${time}s`;
             break;
 
         case typeOfAdvertisement.adsCanBeSkipped:
