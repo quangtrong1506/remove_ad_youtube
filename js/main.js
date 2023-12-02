@@ -14,7 +14,7 @@ setInterval(() => {
         if (isJustStartedPlayingVideo)
             handleAdvertisement(typeOfAdvertisement.beforePlayingTheVideo);
         else handleAdvertisement(typeOfAdvertisement.middleOfTheVideo);
-    } else {
+    } else if (!isLoading) {
         time = Math.floor(document.querySelector('video')?.currentTime) || 0;
     }
 }, 100);
