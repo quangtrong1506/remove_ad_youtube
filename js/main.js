@@ -48,7 +48,8 @@ const handleAdvertisement = (type) => {
 navigation.addEventListener('navigate', () => {
     isLoading = false;
     let id = window.location.href.split('?v=')[1]?.split('&')[0];
-    if (id) {
+    let t = window.location.href.split('?v=')[1]?.split('&')[1];
+    if (id && !t) {
         currentId = id;
         isJustStartedPlayingVideo = true;
         setTimeout(() => {
