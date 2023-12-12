@@ -1,5 +1,10 @@
 # Loại bỏ 1 số quảng cáo trên YouTube
 
+## Cập nhật mới v1.0.4
+
+-   Fix lỗi nghe theo danh sách mà bị mất
+-   Cập nhật thêm tính năng next ngay khi hết video
+
 ## Cập nhật mới v1.0.3
 
 -   Xoá quảng cáo banner

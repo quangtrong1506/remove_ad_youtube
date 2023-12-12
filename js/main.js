@@ -7,6 +7,7 @@ const typeOfAdvertisement = {
     middleOfTheVideo: Symbol('middle_of_the_video'),
     adsCanBeSkipped: Symbol('ads_can_be_skipped'),
     nextVideo: Symbol('next_video'),
+    isPlayingAccordingToTheList: Symbol('is_playing_according_to_the_list'),
 };
 setInterval(() => {
     if (document.querySelector('.ytp-ad-skip-button-modern.ytp-button'))
@@ -29,6 +30,14 @@ const handleAdvertisement = (type) => {
     console.log('Ads: ', type);
     switch (type) {
         case typeOfAdvertisement.beforePlayingTheVideo:
+            if (
+                document.querySelectorAll(
+                    '.playlist-items.style-scope.ytd-playlist-panel-renderer .ytd-playlist-panel-renderer'
+                ).length > 0
+            ) {
+                handleAdvertisement(typeOfAdvertisement.isPlayingAccordingToTheList);
+                break;
+            }
             let id = window.location.href.split('?v=')[1]?.split('&')[0];
             if (id && !isLoading) {
                 localStorage.setItem('time_ext_skip-first', ' date: ' + new Date());
@@ -38,8 +47,14 @@ const handleAdvertisement = (type) => {
             break;
 
         case typeOfAdvertisement.middleOfTheVideo:
-            console.log('time: ', time);
-            console.log('id: ', currentId);
+            if (
+                document.querySelectorAll(
+                    '.playlist-items.style-scope.ytd-playlist-panel-renderer .ytd-playlist-panel-renderer'
+                ).length > 0
+            ) {
+                handleAdvertisement(typeOfAdvertisement.isPlayingAccordingToTheList);
+                break;
+            }
             if (currentId && !isLoading) {
                 localStorage.setItem('time_ext_skip', 'time: ' + time + ' - date: ' + new Date());
                 window.location = `https://youtu.be/${currentId}?t=${time}`;
@@ -51,11 +66,34 @@ const handleAdvertisement = (type) => {
             document.querySelector('.ytp-ad-skip-button-modern.ytp-button')?.click();
             break;
         case typeOfAdvertisement.nextVideo:
+            if (
+                document.querySelectorAll(
+                    '.playlist-items.style-scope.ytd-playlist-panel-renderer .ytd-playlist-panel-renderer'
+                ).length > 0
+            ) {
+                handleAdvertisement(typeOfAdvertisement.isPlayingAccordingToTheList);
+                break;
+            }
             document
                 .querySelector(
                     '.ytp-autonav-endscreen-upnext-button.ytp-autonav-endscreen-upnext-play-button.ytp-autonav-endscreen-upnext-button-rounded'
                 )
                 ?.click();
+            break;
+        case typeOfAdvertisement.isPlayingAccordingToTheList:
+            const showTime = (time) => {
+                console.log(`Skip ads after ${time} seconds`);
+                isLoading = true;
+                setTimeout(() => {
+                    isLoading = false;
+                    console.log('Ads have finished playing');
+                }, time * 1000);
+            };
+            let t =
+                Math.floor(document.querySelector('video')?.duration || 0) -
+                (Math.floor(document.querySelector('video')?.currentTime) || 0);
+
+            if (t > 0 && !isLoading) showTime(t);
             break;
         default:
             console.log('Ads undefined!');
