@@ -3,6 +3,7 @@ const state = {
     currentId: null, //? id video đang phát
     isHandleAds: false, //? Đang xử lý quảng cáo
     isPlayingAccordingToTheList: false, //? có phát dướu dạng danh sách không
+    isLoad: true,
 };
 const typeOfAdvertisement = {
     shortAds: Symbol('short_ad'), // Quảng cáo ngắn hoặc k thể bỏ qua
@@ -29,32 +30,46 @@ const setDataOnload = () => {
 };
 window.onload = () => {
     setDataOnload();
+    changeStateAfterLoad();
     navigation.addEventListener('navigate', () => {
         setDataOnload();
+        changeStateAfterLoad();
     });
+    // Todo: Check ads
+    setInterval(() => {
+        if (state.isHandleAds || fs_status()) return;
+        if (document.querySelector('.ytp-ad-skip-button-modern.ytp-button'))
+            handleAdvertisement(typeOfAdvertisement.adsCanBeSkipped);
+        else if (
+            document.querySelector('.ytp-ad-text.ytp-ad-preview-text-modern') &&
+            !state.isPlayingAccordingToTheList &&
+            !state.isLoad
+        ) {
+            handleAdvertisement(typeOfAdvertisement.shortAds);
+            localStorage.setItem(
+                'trong-sa-doa-yt',
+                JSON.stringify({
+                    state: state,
+                    time: new Date(),
+                })
+            );
+        } else if (
+            document.querySelector(
+                '.ytp-autonav-endscreen-upnext-header .ytp-autonav-endscreen-upnext-header-countdown-number'
+            )
+        ) {
+            handleAdvertisement(typeOfAdvertisement.nextVideo);
+        } else if (!state.isHandleAds) {
+            let t = Math.floor(document.querySelector('video')?.currentTime) || 0;
+            if (t > 10) state.time = t;
+        }
+    }, 100);
 };
-// Todo: Check ads
-setInterval(() => {
-    if (state.isHandleAds || fs_status()) return;
-    if (document.querySelector('.ytp-ad-skip-button-modern.ytp-button'))
-        handleAdvertisement(typeOfAdvertisement.adsCanBeSkipped);
-    // handleAdvertisement(typeOfAdvertisement.shortAds);
-    else if (
-        document.querySelector('.ytp-ad-text.ytp-ad-preview-text-modern') &&
-        !state.isPlayingAccordingToTheList
-    ) {
-        handleAdvertisement(typeOfAdvertisement.shortAds);
-    } else if (
-        document.querySelector(
-            '.ytp-autonav-endscreen-upnext-header .ytp-autonav-endscreen-upnext-header-countdown-number'
-        )
-    ) {
-        handleAdvertisement(typeOfAdvertisement.nextVideo);
-    } else if (!state.isHandleAds) {
-        let t = Math.floor(document.querySelector('video')?.currentTime) || 0;
-        state.time = t > 10 ? t : 0;
-    }
-}, 100);
+const changeStateAfterLoad = () => {
+    setTimeout(() => {
+        state.isLoad = false;
+    }, 3000);
+};
 const handleAdvertisement = (type) => {
     console.log('Ads: ', type);
     switch (type) {
