@@ -1,12 +1,14 @@
-.ytd-banner-promo-renderer-layout-container.ytd-banner-promo-renderer:first-child,
+/* .ytd-banner-promo-renderer-layout-container.ytd-banner-promo-renderer:first-child,
 .ytd-display-ad-renderer:first-child,
 .ytd-ad-slot-renderer:first-child {
     opacity: 0 !important;
     visibility: hidden !important;
+    display: none;
 }
 #player-ads:first-child,
-.ytd-ad-slot-renderer:first-child,
-.ytd-rich-section-renderer:first-child,
-.ytd-banner-promo-renderer-background.ytd-banner-promo-renderer:first-child {
+.ytd-ad-slot-renderer:first-child {
     display: none !important;
 }
+#masthead-ad {
+    display: none !important;
+} */

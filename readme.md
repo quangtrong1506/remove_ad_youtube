@@ -1,5 +1,10 @@
 # Loại bỏ 1 số quảng cáo trên YouTube
 
+## Cập nhật mới v1.0.5
+
+-   Fix các lỗi lặt vặt
+-   Nâng cấp code / logic
+
 ## Cập nhật mới v1.0.4
 
 -   Fix lỗi nghe theo danh sách mà bị mất

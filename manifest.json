@@ -1,7 +1,7 @@
 {
     "name": "[Youtube] Skip ad",
     "description": "[Youtube] Skip ad by TrongSaDoa",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "manifest_version": 3,
     "action": {
         "default_icon": {
@@ -21,7 +21,7 @@
     "content_scripts": [
         {
             "matches": ["https://www.youtube.com/*"],
-            "js": ["/js/main.js"],
+            "js": ["/js/2.js"],
             "css": ["/css/main.css"]
         }
     ]
